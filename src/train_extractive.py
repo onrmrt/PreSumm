@@ -266,4 +266,14 @@ def test_text_ext(args):
     trainer = build_trainer(args, device_id, model, None)
     trainer.test(test_iter, -1)
 
+    candidates = ""
+    with open(args.result_path+'_step-1.candidate') as f:
+        candidates = f.read().rstrip()
+
+    candidates = candidates.split('<q>')
+
+    for cand in candidates:
+        print(cand)
+    
+
 
